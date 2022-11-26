@@ -10,13 +10,13 @@ test("initial count is zero", () => {
 
 test("the button increase +1 increases the count in 1", () => {
   const button = screen.getByRole("button", { name: "+1" });
+  const expectedText = /Count: 1/i;
 
   act(() => {
     button.click();
   });
 
-  const linkElement = screen.getByText(/Count: 1/i);
-  expect(linkElement).toBeInTheDocument();
+  expectTextInTheDocument(expectedText);
 });
 
 function expectTextInTheDocument(expectedText: RegExp) {
