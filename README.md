@@ -4,7 +4,7 @@ This example uses reducers following a code kata and has been implemented using 
 
 ## References
 
-[In the project directory, you can run:](https://drpicox.medium.com/the-fastest-way-to-learn-redux-8de350da6d2a)
+https://drpicox.medium.com/the-fastest-way-to-learn-redux-8de350da6d2a
 
 ### `npm start`
 
