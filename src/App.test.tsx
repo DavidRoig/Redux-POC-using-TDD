@@ -9,15 +9,25 @@ test("initial count is zero", () => {
 });
 
 test("the button increase +1 increases the count in 1", () => {
-  const button = screen.getByRole("button", { name: "+1" });
-  const expectedText = /Count: 1/i;
+  clickButton("+1");
 
+  expectTextInTheDocument(/Count: 1/i);
+});
+
+test("the counter increases every time button is clicked", () => {
+  for (let i = 0; i < 3; i++) {
+    clickButton("+1");
+  }
+
+  expectTextInTheDocument(/Count: 3/i);
+});
+
+function clickButton(name: string) {
+  const button = screen.getByRole("button", { name });
   act(() => {
     button.click();
   });
-
-  expectTextInTheDocument(expectedText);
-});
+}
 
 function expectTextInTheDocument(expectedText: RegExp) {
   const linkElement = screen.getByText(expectedText);
